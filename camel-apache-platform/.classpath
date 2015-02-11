@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/extends">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/extends">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/main/errors"/>
+	<classpathentry kind="src" path="src/test/errors"/>
+	<classpathentry kind="src" path="src/main/monitorings"/>
+	<classpathentry kind="src" path="src/test/monitorings"/>
+	<classpathentry kind="src" path="src/test/parallel-processings"/>
+	<classpathentry kind="src" path="src/main/parallel-processings"/>
+	<classpathentry kind="src" path="src/main/routings"/>
+	<classpathentry kind="src" path="src/test/routings"/>
+	<classpathentry kind="src" path="src/main/securitys"/>
+	<classpathentry kind="src" path="src/test/securitys"/>
+	<classpathentry kind="src" path="src/main/split-joins"/>
+	<classpathentry kind="src" path="src/test/split-joins"/>
+	<classpathentry kind="src" path="src/main/structuring-routess"/>
+	<classpathentry kind="src" path="src/test/structuring-routess"/>
+	<classpathentry kind="src" path="src/main/ws-payments-apis"/>
+	<classpathentry kind="src" path="src/main/ws-camel-route-s"/>
+	<classpathentry kind="src" path="src/test/ws-camel-route-s"/>
+	<classpathentry kind="src" path="src/main/transformations"/>
+	<classpathentry kind="src" path="src/test/transformations"/>
+	<classpathentry kind="src" path="src/main/transactions"/>
+	<classpathentry kind="src" path="src/test/transactions"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

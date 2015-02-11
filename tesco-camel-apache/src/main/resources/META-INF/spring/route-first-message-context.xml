@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+    <bean id="highestQuoteAggregator" class="com.platform.camel.multicasting_messages.HighestQuoteAggregator"/>
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <route>
+            <from uri="direct:start"/>
+            <multicast parallelProcessing="true" strategyRef="highestQuoteAggregator">
+                <to uri="mock:a"/>
+                <to uri="mock:b"/>
+                <to uri="mock:c"/>
+            </multicast>
+            <to uri="mock:result"/>
+        </route>
+    </camelContext>
+
+</beans>
