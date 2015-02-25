@@ -1,0 +1,51 @@
+digraph CamelRoutes {
+
+node [style = "rounded,filled", fillcolor = yellow, fontname="Helvetica-Oblique"];
+
+subgraph cluster_0 {
+label = "Camel Routes";
+color = grey;
+style = "dashed";
+URL = "Camel Routes.html";
+
+
+node1 [
+label = "file:src/data"
+tooltip = "file:src/data?noop=true"
+URL = "http://camel.apache.org/message-endpoint.html"
+];
+
+
+node2 [
+label = "jms:test.MyQueue"
+tooltip = "jms:test.MyQueue"
+URL = "http://camel.apache.org/message-endpoint.html"
+];
+
+node1 -> node2 [
+];
+
+
+node3 [
+label = "file://target/test"
+tooltip = "file://target/test?noop=true"
+URL = "http://camel.apache.org/message-endpoint.html"
+];
+
+node2 -> node3 [
+];
+
+
+node4 [
+label = "bean[org.apache.camel.example.spring.MyRouteBuilder$SomeBean@74cadd41] Bean"
+tooltip = "Bean Ref: bean[org.apache.camel.example.spring.MyRouteBuilder$SomeBean@74cadd41]"
+URL = "http://camel.apache.org/bean-ref.html"
+shape = "box"
+];
+
+node3 -> node4 [
+];
+
+}
+
+}

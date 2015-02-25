@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+          http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+          http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+         
+         
+  <context:property-placeholder location="classpath:propertyfiles/servers.properties,file:target/custom.properties"
+                                ignore-resource-not-found="true"/>
+	<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+		<package>com.tesco.camel.spring</package>
+		<route>
+			<from uri="seda:start" />
+			<to uri="mock:result" />
+		</route>
+	</camelContext>
+
+	<!-- lets configure the default ActiveMQ broker URL -->
+	<bean id="jms" class="org.apache.camel.component.jms.JmsComponent">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="${activemq.tcp.server.url}" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tibco" class="org.apache.camel.component.jms.JmsComponent ">
+		<property name="connectionFactory">
+			<bean class="com.tibco.tibjms.TibjmsTopicConnectionFactory">
+				<property name="serverUrl" value="${tibco.tcp.server.url}" />
+			</bean>
+		</property>
+	</bean>
+	<!-- <bean id="jbossFactoryFinderResolver" class="com.mycompany.jboss.JBossFactoryFinderResolver" 
+		/> -->
+
+
+
+</beans>
